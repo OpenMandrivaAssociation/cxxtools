@@ -1,9 +1,9 @@
 
 %define name	cxxtools
-%define version	1.4.6
+%define version	1.4.7
 %define rel	1
 
-%define major	4
+%define major	5
 %define libname	%mklibname cxxtools %major
 %define devname	%mklibname cxxtools -d
 
