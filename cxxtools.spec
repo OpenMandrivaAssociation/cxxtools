@@ -15,6 +15,8 @@ License:	LGPLv2.1+
 Group:		System/Libraries
 URL:		http://www.tntnet.org/
 Source:		http://www.tntnet.org/download/%name-%version.tar.gz
+# from upstream, fixes build:
+Patch0:		cxxtools-605-use-right-eof-value.patch
 BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
@@ -38,6 +40,7 @@ Toolbox with reusable c++ components.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 %configure2_5x
