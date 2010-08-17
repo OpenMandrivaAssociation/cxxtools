@@ -3,6 +3,8 @@
 %define version	1.4.8
 %define rel	2
 
+# NOTE: when updating, make sure tntnet and vdr-plugin-live still build. -Anssi
+
 %define major	6
 %define libname	%mklibname cxxtools %major
 %define devname	%mklibname cxxtools -d
