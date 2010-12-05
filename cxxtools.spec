@@ -1,7 +1,7 @@
 
 %define name	cxxtools
 %define version	1.4.8
-%define rel	2
+%define rel	3
 
 # NOTE: when updating, make sure tntnet and vdr-plugin-live still build. -Anssi
 
