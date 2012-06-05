@@ -1,25 +1,22 @@
 
 %define name	cxxtools
-%define version	1.4.8
-%define rel	3
+%define version	2.1.1
+%define rel	1
 
 # NOTE: when updating, make sure tntnet and vdr-plugin-live still build. -Anssi
 
-%define major	6
+%define major	8
 %define libname	%mklibname cxxtools %major
 %define devname	%mklibname cxxtools -d
 
 Summary:	Toolbox with reusable c++ components
 Name:		%name
 Version:	%version
-Release:	%mkrel %rel
+Release:	%rel
 License:	LGPLv2.1+
 Group:		System/Libraries
 URL:		http://www.tntnet.org/
-Source:		http://www.tntnet.org/download/%name-%version.tar.gz
-# from upstream, fixes build:
-Patch0:		cxxtools-605-use-right-eof-value.patch
-BuildRoot:	%{_tmppath}/%{name}-root
+Source0:	http://www.tntnet.org/download/%name-%version.tar.gz
 
 %description
 Toolbox with reusable c++ components.
@@ -42,27 +39,23 @@ Toolbox with reusable c++ components.
 
 %prep
 %setup -q
-%apply_patches
+# fix spurious executable perm
+find -name "*.cpp" -exec chmod -x {} \;
+find -name "*.h" -exec chmod -x {} \;
 
 %build
-%configure2_5x
-%make
+./configure     --disable-static \
+		--prefix=%{_prefix} \
+		--libdir=%{_libdir} \
+		--disable-dependency-tracking \
+		--disable-demos \
+		--disable-unittest
+make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %multiarch_binaries %{buildroot}%{_bindir}/cxxtools-config
-
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
 
 %files -n %libname
 %{_libdir}/*.so.%{major}*
@@ -71,7 +64,5 @@ rm -rf %{buildroot}
 %doc README AUTHORS
 %{_bindir}/cxxtools-config
 %{multiarch_bindir}/cxxtools-config
-%{_libdir}/*.a
-%{_libdir}/*.la
 %{_libdir}/*.so
 %{_includedir}/%{name}
