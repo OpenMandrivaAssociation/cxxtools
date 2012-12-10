@@ -66,3 +66,38 @@ make
 %{multiarch_bindir}/cxxtools-config
 %{_libdir}/*.so
 %{_includedir}/%{name}
+
+
+%changelog
+* Tue Jun 05 2012 Alexander Khrukin <akhrukin@mandriva.org> 2.1.1-1
++ Revision: 802668
+- version update 2.1.1
+
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 1.4.8-3mdv2011.0
++ Revision: 610186
+- rebuild
+
+* Sat Feb 06 2010 Anssi Hannula <anssi@mandriva.org> 1.4.8-2mdv2010.1
++ Revision: 501446
+- fix build (use-right-eof-value.patch from upstream)
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Sat Sep 06 2008 Emmanuel Andry <eandry@mandriva.org> 1.4.8-1mdv2009.0
++ Revision: 281915
+- New version
+- New major 6
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Thu Apr 24 2008 Anssi Hannula <anssi@mandriva.org> 1.4.7-2mdv2009.0
++ Revision: 197071
+- new version
+- new major
+
+* Sat Jan 19 2008 Anssi Hannula <anssi@mandriva.org> 1.4.6-1mdv2008.1
++ Revision: 155075
+- initial Mandriva release
+
