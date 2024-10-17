@@ -15,7 +15,7 @@ Version:	%version
 Release:	%rel
 License:	LGPLv2.1+
 Group:		System/Libraries
-URL:		http://www.tntnet.org/
+URL:		https://www.tntnet.org/
 Source0:	http://www.tntnet.org/download/%name-%version.tar.gz
 
 %description
